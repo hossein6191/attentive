@@ -284,7 +284,34 @@ line.
 
 ## Evidence
 
-The on-chain run is recorded here once it has run.
+Run on 28 October 2026 on GenLayer Studio (chain 61999) by `tests/on_chain/smoke.mjs`, from generated accounts funded from the
+Studio faucet, none of them anybody's wallet: **RESEARCHER** opens the survey, **ALICE**, **BEN** and **CARA** answer, **STRANGER** tries what it may not. **35 passed, 0 failed**; transactions: 18 in 18 steps; sent a second time: none.
+The whole log is `tests/on_chain/smoke-run.log`. The pairs were sealed as Q1/Q4 and Q2/Q6 and revealed after answering closed. Alice's paired answers read consistent (cc) and her 0.2 GEN reward reached her in the same transaction; Ben said he cycles and that he drives his car every day, read contradictory (xc), and his bond went to the researcher; Cara's "depends" and "it varies" read unclear (??), with her bond back and no reward. The researcher closed the survey and took back the 0.4 GEN left.
+
+- `deploy` deployed at [`0xff570730958cbe5E8d7d73dB7E9b1b56d460C945`](https://explorer-studio.genlayer.com/address/0xff570730958cbe5E8d7d73dB7E9b1b56d460C945)
+
+- the code deployed at 0xff570730958cbe5E8d7d73dB7E9b1b56d460C945 is byte for byte contracts/attentive.py: 75047 bytes, sha256 7713e92b361687cbdb8c4ec5fd4135d4424f89b916ca6762ed06d787d01090f5
+
+| step | by | transactions | votes |
+|---|---|---|---|
+| Attentive is deployed and holds nothing yet | RESEARCHER | [0xc7bee7a9…](https://explorer-studio.genlayer.com/tx/0xc7bee7a94d5d14ee2838ebf6496538169361712281c551a3c941392a6b973279) | 3 agree, 0 disagree, 2 idle |
+| ALICE deposits 0.01 GEN of credit, the response bond; no model runs | ALICE | [0x3deb9d29…](https://explorer-studio.genlayer.com/tx/0x3deb9d290461ba351625203d8f205857041c055f226343a37cba224976682441) | 3 agree, 0 disagree, 2 idle |
+| BEN deposits 0.01 GEN of credit, the response bond; no model runs | BEN | [0xcfd83a51…](https://explorer-studio.genlayer.com/tx/0xcfd83a5158433e4649c3e5b06c569a041a735ebde9ba11edb0443feaab7e48a5) | 3 agree, 0 disagree, 2 idle |
+| CARA deposits 0.01 GEN of credit, the response bond; no model runs | CARA | [0x577a015b…](https://explorer-studio.genlayer.com/tx/0x577a015b338e277d595102dc4825c6862ff0793320ad3263f9ae117a1e700f7b) | 4 agree, 0 disagree, 1 idle |
+| RESEARCHER opens S1: six questions, a 0.6 GEN budget of three 0.2 GEN rewards, the pairs sealed by their digest | RESEARCHER | [0x710efe1e…](https://explorer-studio.genlayer.com/tx/0x710efe1e43df6bf33275d507856edcca88958165a274cf2c1da029e81885f3ea) | 3 agree, 0 disagree, 2 idle |
+| ALICE answers all six questions; the bond leaves her credit, no model runs | ALICE | [0xcc61943c…](https://explorer-studio.genlayer.com/tx/0xcc61943ca45fb54a331600ed7f69df140e4aa9d26ab7ad99c9ff0d40036ad21b) | 3 agree, 0 disagree, 2 idle |
+| ALICE answers again: refused, one response per address | ALICE | [0x46003096…](https://explorer-studio.genlayer.com/tx/0x460030963fc422444fb8d24cc3d916d6f252c45dcda7fdf7bdaefb3101f2ac23) | 3 agree, 0 disagree, 2 idle |
+| BEN answers: he cycles, and he drives his car every day | BEN | [0x0e937827…](https://explorer-studio.genlayer.com/tx/0x0e9378272577981742d412871b18f6d32fa1bbf1ad9bee6741c641a0e82e74da) | 3 agree, 0 disagree, 2 idle |
+| CARA answers: depends, it varies | CARA | [0xe76dcc1c…](https://explorer-studio.genlayer.com/tx/0xe76dcc1c7b63057ec9e751ceed1eb85ae8f18d9c6a85bbc08647dbfd7624fab2) | 3 agree, 0 disagree, 2 idle |
+| STRANGER tries to reveal S1's pairs with the right salt: refused, only the researcher may | STRANGER | [0x7368223b…](https://explorer-studio.genlayer.com/tx/0x7368223bf3594102238cb85a744fa29b7082816a0dfa6108a7259828113ce1ae) | 3 agree, 0 disagree, 2 idle |
+| RESEARCHER reveals the pairs and the salt; the code checks them against the seal | RESEARCHER | [0xf9c86d4b…](https://explorer-studio.genlayer.com/tx/0xf9c86d4b8e02a99fef69c30cb595a2a58203bc39d7c28aa230c75fa55e1026cc) | 4 agree, 0 disagree, 1 idle |
+| ALICE's response: both pairs say the same thing, consistent | ALICE | [0xef6f77ab…](https://explorer-studio.genlayer.com/tx/0xef6f77ab544f33e42dd0f25e51ae5cd92448fa17b78361fb2296b6bc830bdc83) | 3 agree, 0 disagree, 2 idle |
+| BEN's response, judged by STRANGER: the first pair contradicts itself, contradictory | STRANGER | [0xc95bfc76…](https://explorer-studio.genlayer.com/tx/0xc95bfc76c249f5235ec264641b37b8f86358e18dfc55146921afb8727e50ba6b) | 3 agree, 0 disagree, 2 idle |
+| CARA's response: neither pair says anything specific, unclear | CARA | [0x892dcc46…](https://explorer-studio.genlayer.com/tx/0x892dcc4645f0873f53bd2282df9e8e8a2bdcbfbd0b58a8db38fbf61493c32497) | 3 agree, 0 disagree, 2 idle |
+| ALICE asks for her response to be judged again: refused before any model runs, judged once | ALICE | [0x630fbb49…](https://explorer-studio.genlayer.com/tx/0x630fbb49ac3725701dc0ff848ac8202a4148c5e08455539e50208dfbeb6d09f2) | 3 agree, 0 disagree, 2 idle |
+| RESEARCHER closes S1 once every response is settled, and the 0.4 GEN left come back | RESEARCHER | [0xc6a84431…](https://explorer-studio.genlayer.com/tx/0xc6a844316c39338aeda9804e0f0638daad43d6fa02b4783c90a1d378acd977e4) | 5 agree, 0 disagree, 0 idle |
+| ALICE withdraws the 0.01 GEN bond that came back to her credit | ALICE | [0x0690fb24…](https://explorer-studio.genlayer.com/tx/0x0690fb241790b90d14c9a32a83fab3a66d3c70af22a623cebbd78ad89b86a0f7) | 5 agree, 0 disagree, 0 idle |
+| CARA withdraws the 0.01 GEN bond that came back to her credit | CARA | [0x1bd4abaa…](https://explorer-studio.genlayer.com/tx/0x1bd4abaa3f1e7cc5b60c0a421c7282e7e5a66250231b8a0836284c948a55fb64) | 3 agree, 0 disagree, 2 idle |
 
 ## Licence
 
