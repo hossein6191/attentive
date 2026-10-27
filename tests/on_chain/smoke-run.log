@@ -16,26 +16,7 @@ PASS  ALICE deposits 0.01 GEN of credit, the response bond; no model runs  - 3 a
       [20:37:54] BEN deposit() +0.01 GEN  0xcfd83a5158433e4649c3e5b06c569a041a735ebde9ba11edb0443feaab7e48a5  3 agree, 0 disagree, 2 idle  SUCCESS
 PASS  BEN deposits 0.01 GEN of credit, the response bond; no model runs  - 3 agree, 0 disagree, 2 idle
 GenLayer RPC error (eth_estimateGas): Unexpected token '<', "<!DOCTYPE "... is not valid JSON
-Gas estimation failed, using default 200_000: UnknownRpcError: An unknown RPC error occurred.
-
-Details: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
-Version: viem@2.56.8
-    at withRetry.delay.count.count (file:///Volumes/T9/project:genlayer/attentive/node_modules/viem/_esm/utils/buildRequest.js:127:31)
-    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
-    at async attemptRetry (file:///Volumes/T9/project:genlayer/attentive/node_modules/viem/_esm/utils/promise/withRetry.js:24:30) {
-  details: `Unexpected token '<', "<!DOCTYPE "... is not valid JSON`,
-  docsPath: undefined,
-  metaMessages: undefined,
-  shortMessage: 'An unknown RPC error occurred.',
-  version: '2.56.8',
-  code: -1,
-  [cause]: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
-      at JSON.parse (<anonymous>)
-      at parseJSONFromBytes (node:internal/deps/undici/undici:4394:19)
-      at successSteps (node:internal/deps/undici/undici:7048:27)
-      at readAllBytes (node:internal/deps/undici/undici:5965:13)
-      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
-}
+Gas estimation failed (the RPC answered with an HTML page); the transaction was sent with the default gas limit.
       [20:38:33] CARA deposit() +0.01 GEN  0x577a015b338e277d595102dc4825c6862ff0793320ad3263f9ae117a1e700f7b  4 agree, 0 disagree, 1 idle  SUCCESS
 PASS  CARA deposits 0.01 GEN of credit, the response bond; no model runs  - 4 agree, 0 disagree, 1 idle
       [20:39:13] RESEARCHER open_survey(Commuting in Harboursi, ["How do you usually g, d9676c7336f73466fe30d9, 200000000000000000, 1200, 1800) +0.6 GEN  0x710efe1e43df6bf33275d507856edcca88958165a274cf2c1da029e81885f3ea  3 agree, 0 disagree, 2 idle  SUCCESS
